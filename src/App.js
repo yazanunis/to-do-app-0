@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { TaskProvider } from './components/context/TaskContext'
+import Header from './components/Header'
+import TasksForm from './components/TasksForm'
+import TasksList from './components/TasksList'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import About from './components/About'
+import NotFound from './components/NotFound'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TaskProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path='/' element={
+              <>
+                <TasksForm />
+                <TasksList />
+              </>
+            } />
+            <Route path='/about' element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </TaskProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
