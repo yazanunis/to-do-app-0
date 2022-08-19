@@ -10,7 +10,6 @@ const TasksForm = () => {
     if (data) {
       addTask(data)
       reset()
-    } else {
     }
   }
 

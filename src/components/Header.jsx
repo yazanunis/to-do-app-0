@@ -2,15 +2,23 @@ import { Link } from "react-router-dom"
 
 const Header = () => {
   return (
-    <nav className="nav justify-content-center bg-info position-relative">
-      <h1 className="nav-item text-dark">To Do App</h1>
-      <Link
-        to="/about"
-        className="position-absolute top-50 end-0 translate-middle"
-      >
-        About
-      </Link>
-    </nav>
+    <ul className="nav justify-content-center">
+      <li className="nav-item">
+        <Link to="/" className="nav-link">
+          <h1 className="text-info">To Do App</h1>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/done" className="nav-link">
+          <h1 className="text-dark">Done Tasks</h1>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/about" className="nav-link">
+          <h1 className="text-dark">About</h1>
+        </Link>
+      </li>
+    </ul>
   )
 }
 
